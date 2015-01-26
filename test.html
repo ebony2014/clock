@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="http://l.tbcdn.cn/apps/top/c/util/jquery/jquery-1.8.3.min.js"></script>
+</head>
+
+<style>
+*{margin:0;padding:0}
+a{text-decoration:none;}
+li{list-style:none}
+
+.c1{width:150px;margin:0px auto;position:fixed;top:100px;left:100px;z-index:3;color:red;-webkit-transform:rotate(270deg) translate(50px,0);-moz-transform:rotate(270deg) translate(50px,0)}
+.c2{width:100px;margin:0px auto;position:fixed;top:100px;left:125px;z-index:2;color:#000;-webkit-transform:rotate(270deg) translate(25px,0);-moz-transform:rotate(270deg) translate(25px,0)}
+.c3{width:70px;margin:0px auto;position:fixed;top:100px;left:140px;z-index:1;color:#000;-webkit-transform:rotate(270deg) translate(10px,0);-moz-transform:rotate(270deg) translate(10px,0)}
+
+
+</style>
+<body>
+
+	<hr class='c1'>
+	<hr class='c2'>
+	<hr class='c3'>
+
+</body>
+</html>
+
+<script>
+	var day = new Date();
+	var Hours = day.getHours();
+	var Minutes = day.getMinutes();
+	var Seconds = day.getSeconds();
+	
+	var deg1 = 0;
+	var deg2 = 0;
+	var deg3 = 0;
+	function set_time(){
+		var day1 = new Date();
+		//sin++;
+		var getHours = day1.getHours();
+		var getMinutes = day1.getMinutes();
+		var getSeconds = day1.getSeconds();
+		
+		deg1 = getSeconds*6-450
+	
+		$(".c1").css("-webkit-transform","rotate("+deg1+"deg) translate(50px,0)")
+		$(".c1").css("-moz-transform","rotate("+deg1+"deg) translate(50px,0)");
+		
+		deg3 = getHours * 30 + (getMinutes/2)-450;
+		console.log(deg3);//360//60  //6
+		$(".c3").css("-webkit-transform","rotate("+deg3+"deg) translate(10px,0)");
+		$(".c3").css("-moz-transform","rotate("+deg3+"deg) translate(10px,0)");
+		
+		deg2 =getMinutes*6-450
+		
+		
+		$(".c2").css("-webkit-transform","rotate("+deg2+"deg) translate(25px,0)")
+		$(".c2").css("-moz-transform","rotate("+deg2+"deg) translate(25px,0)")
+		
+		
+		
+		
+		
+	
+	} 
+	
+	
+	
+	setInterval(set_time,1000)
+
+
+</script>
